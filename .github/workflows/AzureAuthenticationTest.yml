@@ -1,4 +1,5 @@
-# based on Azure AD Workload Identity Federation https://www.youtube.com/watch?v=u7PcV9ivaAo
+# Azure CLI login by using OpenID Connect (OIDC) https://github.com/Azure/login
+# Azure AD Workload Identity Federation https://www.youtube.com/watch?v=u7PcV9ivaAo
 
 name: Run Azure Login with OIDC
 on: [push]
@@ -16,6 +17,8 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          # enable PowerShell if one of your steps will be excecuting ps script
+          enable-AzPSSession: true
 
       - name: Azure CLI script
         uses: azure/cli@v2
@@ -23,3 +26,10 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az account show
+
+      - name: Azure PowerShell script
+        uses: azure/powershell@v2
+        with:
+          azPSVersion: "latest"
+          inlineScript: |
+            Get-AzContext
