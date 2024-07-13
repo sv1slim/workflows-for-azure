@@ -1,0 +1,48 @@
+/* site.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+    margin-right: 15px;
+}
+
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    .jumbotron h1 {
+        color: #333;
+    }
+
+    .jumbotron .btn-primary {
+        background-color: #333;
+        border-color: #333;
+    }
+
+footer {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* No need to set width here; controlled via .container in _Layout.cshtml */
