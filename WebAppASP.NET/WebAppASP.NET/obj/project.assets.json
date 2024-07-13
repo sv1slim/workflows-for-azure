@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\serge\\source\\repos\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj",
+      "projectUniqueName": "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj",
       "projectName": "WebAppASP.NET",
-      "projectPath": "C:\\Users\\serge\\source\\repos\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj",
+      "projectPath": "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj",
       "packagesPath": "C:\\Users\\serge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\serge\\source\\repos\\WebAppASP.NET\\WebAppASP.NET\\obj\\",
+      "outputPath": "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\serge\\AppData\\Roaming\\NuGet\\NuGet.Config",

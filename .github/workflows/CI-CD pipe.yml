@@ -1,5 +1,4 @@
-# Azure CLI login by using OpenID Connect (OIDC) https://github.com/Azure/login
-# Azure AD Workload Identity Federation https://www.youtube.com/watch?v=u7PcV9ivaAo
+# CI-CD doc: https://www.youtube.com/watch?v=QP0pi7xe24s
 
 name: Publish to Azure 
 
@@ -9,21 +8,39 @@ on:
     branches:
     - main
 jobs:
-  Build:
+  Restore-Build-Publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          # enable PowerShell if one of your steps will be excecuting ps script
-          enable-AzPSSession: true
+      # checkout the repo
+      - name: Checkout GitHub Action
+        uses: actions/checkout@main
 
-      - name: Azure CLI script
-        uses: azure/cli@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          azcliversion: latest
-          inlineScript: |
-            az account show
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore ./WebAppASP.NET/WebAppASP.NET.sln
+
+      - name: Build
+        run: dotnet build ./WebAppASP.NET/WebAppASP.NET.sln --configuration Release --no-restore
+      
+      - name: Publish
+        run: dotnet publish ./WebAppASP.NET/WebAppASP.NET.sln --configuration Release --no-build
+
+      # - name: Azure login
+      #   uses: azure/login@v2
+      #   with:
+      #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
+      #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+      #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      #     # enable PowerShell if one of your steps will be excecuting ps script
+      #     enable-AzPSSession: true
+
+      # - name: Azure CLI script
+      #   uses: azure/cli@v2
+      #   with:
+      #     azcliversion: latest
+      #     inlineScript: |
+      #       az account show

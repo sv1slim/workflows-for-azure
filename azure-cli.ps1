@@ -15,3 +15,4 @@ az ad sp create-for-rbac --name gitRepo-workflow-for-azure --role Contributor --
 # AZURE_SUBSCRIPTION_ID
 # AZURE_TENANT_ID
 
+
