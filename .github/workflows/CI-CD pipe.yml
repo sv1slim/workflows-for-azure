@@ -8,10 +8,14 @@ on:
     branches:
     - main
 
+# important to add permissions to avoid Error: Please make sure to give write permissions to id-token in the workflow.
+permissions:
+  id-token: write
+  contents: read
+
 env:
   AZURE_WEBAPP_NAME: WebAppBigPicture
   AZURE_WEBAPP_PACKAGE_PATH: ./WebAppASP.NET/publish
-
 
 jobs:
   Restore-Build-Publish:

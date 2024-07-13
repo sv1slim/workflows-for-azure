@@ -5,6 +5,7 @@ name: Run Azure Login with OIDC
 #on: [push]
 on: [workflow_dispatch] # run action manually on deamand
 
+# important to add permissions to avoid Error: Please make sure to give write permissions to id-token in the workflow.
 permissions:
   id-token: write
   contents: read
