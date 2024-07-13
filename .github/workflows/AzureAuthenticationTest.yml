@@ -2,22 +2,25 @@
 # Azure AD Workload Identity Federation https://www.youtube.com/watch?v=u7PcV9ivaAo
 
 name: Run Azure Login with OIDC
-on: [push]
+#on: [push]
+on: [workflow_dispatch] # run action manually on deamand
 
 permissions:
   id-token: write
   contents: read
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Azure login
+
+      - name: Azure login 
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          # enable PowerShell if one of your steps will be excecuting ps script
+          # enable PowerShell if one of your steps will be excecuting ps script like step "Azure PowerShell script" Get-AzResourceGroup
           enable-AzPSSession: true
 
       - name: Azure CLI script
