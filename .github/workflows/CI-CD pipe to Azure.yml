@@ -23,7 +23,7 @@ jobs:
     # runs-on: ubuntu-latest
     runs-on: 
       - self-hosted
-      - self-hosted-linux-runner
+      - self-hosted-runner1
     
     steps:
       # checkout the repo
