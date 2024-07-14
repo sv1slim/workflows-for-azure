@@ -1,6 +1,6 @@
 # CI-CD doc: https://www.youtube.com/watch?v=QP0pi7xe24s
 
-name: Publish to Azure 
+name: CI-CD pipe to Azure 
 
 on: 
   workflow_dispatch: # run action manually on deamand
