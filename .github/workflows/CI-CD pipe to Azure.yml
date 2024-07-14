@@ -38,7 +38,7 @@ jobs:
           dotnet-version: '8.0.x'
 
 
-      - name: Restore
+      - name: Restore dependencies
         run: dotnet restore ./src/WebAppASP.NET.sln
 
 
@@ -46,7 +46,7 @@ jobs:
         run: dotnet build ./src/WebAppASP.NET.sln --configuration Release --no-restore
       
       #- name: Run Unit Tests
-      #  run: dotnet test ./src/unitTest.proj --no-build --verbosity normal
+      #  run: dotnet test ./src/unitTests/UnitTests.csproj --no-build --verbosity normal
 
         
       - name: Publish
