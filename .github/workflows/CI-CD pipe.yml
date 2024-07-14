@@ -1,12 +1,13 @@
 # CI-CD doc: https://www.youtube.com/watch?v=QP0pi7xe24s
 
-name: Publish to Azure 
+name: CI-CD pipe to Azure 
 
 on: 
   workflow_dispatch: # run action manually on deamand
-  push:
-    branches:
-    - main
+  pull_request:
+  #push:
+    #branches:
+    #- main
 
 # important to add permissions to avoid Error: Please make sure to give write permissions to id-token in the workflow.
 permissions:
@@ -19,7 +20,12 @@ env:
 
 jobs:
   Restore-Build-Publish:
-    runs-on: ubuntu-latest
+  
+    # runs-on: ubuntu-latest
+    runs-on: 
+      - self-hosted
+      - self-hosted-runner1
+    
     steps:
       # checkout the repo
       - name: Checkout GitHub Action
@@ -39,7 +45,10 @@ jobs:
       - name: Build
         run: dotnet build ./WebAppASP.NET/WebAppASP.NET.sln --configuration Release --no-restore
       
+      #- name: Run Unit Tests
+      #  run: dotnet test ./src/unittest.proj --no-build --verbosity normal
 
+        
       - name: Publish
         run: dotnet publish ./WebAppASP.NET/WebAppASP.NET.sln --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
