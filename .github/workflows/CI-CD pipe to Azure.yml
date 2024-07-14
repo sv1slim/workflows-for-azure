@@ -16,7 +16,7 @@ permissions:
 
 env:
   AZURE_WEBAPP_NAME: WebAppBigPicture
-  AZURE_WEBAPP_PACKAGE_PATH: ./WebAppASP.NET/publish
+  AZURE_WEBAPP_PACKAGE_PATH: ./src/publish
 
 jobs:
   Restore-Build-Publish:
@@ -39,18 +39,18 @@ jobs:
 
 
       - name: Restore
-        run: dotnet restore ./WebAppASP.NET/WebAppASP.NET.sln
+        run: dotnet restore ./src/WebAppASP.NET.sln
 
 
       - name: Build
-        run: dotnet build ./WebAppASP.NET/WebAppASP.NET.sln --configuration Release --no-restore
+        run: dotnet build ./src/WebAppASP.NET.sln --configuration Release --no-restore
       
       #- name: Run Unit Tests
-      #  run: dotnet test ./src/unittest.proj --no-build --verbosity normal
+      #  run: dotnet test ./src/unitTest.proj --no-build --verbosity normal
 
         
       - name: Publish
-        run: dotnet publish ./WebAppASP.NET/WebAppASP.NET.sln --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        run: dotnet publish ./src/WebAppASP.NET.sln --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
 
       - name: Azure login
@@ -65,6 +65,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          #publish-profile: ''
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
           #slot-name: Production
+          #publish-profile: ''
