@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj": {}
+    "C:\\Git\\workflows-for-azure\\src\\WebAppASP.NET\\WebAppASP.NET.csproj": {}
   },
   "projects": {
-    "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj": {
+    "C:\\Git\\workflows-for-azure\\src\\WebAppASP.NET\\WebAppASP.NET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj",
+        "projectUniqueName": "C:\\Git\\workflows-for-azure\\src\\WebAppASP.NET\\WebAppASP.NET.csproj",
         "projectName": "WebAppASP.NET",
-        "projectPath": "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\WebAppASP.NET.csproj",
+        "projectPath": "C:\\Git\\workflows-for-azure\\src\\WebAppASP.NET\\WebAppASP.NET.csproj",
         "packagesPath": "C:\\Users\\serge\\.nuget\\packages\\",
-        "outputPath": "C:\\Git\\workflows-for-azure\\WebAppASP.NET\\WebAppASP.NET\\obj\\",
+        "outputPath": "C:\\Git\\workflows-for-azure\\src\\WebAppASP.NET\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\serge\\AppData\\Roaming\\NuGet\\NuGet.Config",
