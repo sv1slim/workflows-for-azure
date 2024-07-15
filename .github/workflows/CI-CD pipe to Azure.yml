@@ -54,7 +54,8 @@ jobs:
         if: always()
         with:
           files: |
-            test-results/**/*.trx
+            TestResults/**/*.trx   
+          # /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx
           #trx_files: " /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx"
 
         
