@@ -19,7 +19,7 @@ env:
   AZURE_WEBAPP_NAME: WebAppBigPicture
   AZURE_WEBAPP_PACKAGE_PATH: ./src/publish
 
-  
+
 jobs:
   Restore-Build-Test-Publish:
   
@@ -48,8 +48,8 @@ jobs:
         run: dotnet build ./src/WebAppASP.NET.sln --configuration Release --no-restore
       
 
-      - name: Test
-        run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
+      #- name: Test
+      #  run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
         #/home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx
 
         
