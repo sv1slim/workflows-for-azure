@@ -13,15 +13,13 @@ on:
 permissions:
   id-token: write
   contents: read
-  # permissions for https://github.com/marketplace/actions/publish-test-results (next two lines)
-  issues: read
-  checks: write
-  pull-requests: write
+
 
 env:
   AZURE_WEBAPP_NAME: WebAppBigPicture
   AZURE_WEBAPP_PACKAGE_PATH: ./src/publish
 
+  
 jobs:
   Restore-Build-Test-Publish:
   
@@ -52,16 +50,7 @@ jobs:
 
       - name: Test
         run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
-      
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: |
-            *xtests.trx
-        
         #/home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx
-        #trx_files: " /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx"
 
         
       - name: Publish
