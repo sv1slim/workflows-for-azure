@@ -50,16 +50,16 @@ jobs:
         run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
       
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action/linux@v2
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
           files: |
-            TestResults/**/*.trx   
+            TestResults/*.trx   
           # /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx
           #trx_files: " /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx"
 
         
-      - name: Publish WebApp
+      - name: Publish
         run: dotnet publish ./src/WebAppASP.NET.sln --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
 
