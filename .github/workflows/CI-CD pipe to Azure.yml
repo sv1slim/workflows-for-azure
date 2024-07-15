@@ -16,7 +16,7 @@ permissions:
 
 
 env:
-  AZURE_WEBAPP_NAME: WebAppBigPicture
+  AZURE_WEBAPP_NAME: WebApp-test-pipe
   AZURE_WEBAPP_PACKAGE_PATH: ./src/publish
 
 
