@@ -14,6 +14,7 @@ permissions:
   id-token: write
   contents: read
   # permissions for https://github.com/marketplace/actions/publish-test-results (next two lines)
+  issues: read
   checks: write
   pull-requests: write
 
@@ -57,9 +58,10 @@ jobs:
         if: always()
         with:
           files: |
-            TestResults/*.trx   
-          # /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx
-          #trx_files: " /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx"
+            **/TestResults/xtests.trx
+        
+        #/home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx
+        #trx_files: " /home/azureuser/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx"
 
         
       - name: Publish
