@@ -46,12 +46,17 @@ jobs:
         run: dotnet build ./src/WebAppASP.NET.sln --configuration Release --no-restore
       
       - name: Test
-        run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal
+        run: dotnet test ./src/XUnitExamples/XUnitExamples.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
+      
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          trx_files: "/home/actions-runner/_work/workflows-for-azure/workflows-for-azure/src/XUnitExamples/TestResults/xtests.trx"
 
         
       - name: Publish
         run: dotnet publish ./src/WebAppASP.NET.sln --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-
 
       - name: Azure login
         uses: azure/login@v2
